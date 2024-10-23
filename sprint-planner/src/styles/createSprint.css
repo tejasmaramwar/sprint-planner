@@ -1,0 +1,92 @@
+.createSprintContainer {
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  align-items: stretch;
+  width: 100%;
+  position: relative;
+}
+
+.left-section {
+  max-width: 70%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  padding-left: 70px;
+}
+
+.left-section > div {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left-section::-webkit-scrollbar {
+  display: none;
+}
+
+.left-section .first {
+  padding: 0 100px;
+}
+
+.first h1 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 40px 0;
+}
+
+.left-section #projectTitle {
+  font-size: 36px;
+  width: 75%;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.first button {
+  padding: 12px 24px;
+  margin-top: 20px;
+}
+
+.first a {
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.left-section .second {
+  padding: 0 100px;
+}
+
+.second .sprintDetailsTitle {
+  font-size: 36px;
+  font-weight: 400;
+  margin: 40px 0;
+}
+
+.second .sprintDdl{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.third .developersTable{
+    margin: 40px 0;
+}
+
+.right-section {
+  max-width: 30%;
+  height: 100vh;
+  position: sticky;
+  margin: 0 50px;
+}
+
+.right-section img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

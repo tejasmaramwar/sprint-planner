@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleError, handleSuccess } from "./utils";
 import { ToastContainer } from "react-toastify";
+import Navbar from "../components/Navbar";
 
 function Home() {
   const [loggedInUser, setLoggedInUser] = useState("");
@@ -30,8 +31,11 @@ function Home() {
       };
       const response = await fetch(url, headers);
       const result = await response.json();
-      console.log(result);
-      setProducts(result);
+      if (result.success) {
+        setProducts(result);
+      } else if (!result.success) {
+        handleError(result.message);
+      }
     } catch (err) {
       handleError(err);
     }
@@ -40,19 +44,25 @@ function Home() {
     fetchProducts();
   }, []);
 
+  const handleCreateNewSprint = () => {
+    navigate("/createSprint");
+  };
+
   return (
     <div>
-      <h1>Welcome {loggedInUser}</h1>
-      <button onClick={handleLogout}>Logout</button>
+      <Navbar handleLogout={handleLogout} />
+      {/* <h1>Welcome {loggedInUser}</h1> */}
+      {/* <button onClick={handleLogout}>Logout</button> */}
       <div>
-        {products &&
+        {/* {products &&
           products?.map((item, index) => (
             <ul key={index}>
               <span>
                 {item.name} : {item.price}
               </span>
             </ul>
-          ))}
+          ))} */}
+        <button onClick={handleCreateNewSprint}>Create Sprint</button>
       </div>
       <ToastContainer />
     </div>
